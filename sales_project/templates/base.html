@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="navbar-nav">
+      {# Brand / Admin / Products / Sales / Dashboard #}
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'sales_app/aion_logo.png' %}" height="30" class="d-inline-block align-top">
+        </a>
+        <a class="nav-item nav-link" href="#">Admin</a>
+        <a class="nav-item nav-link" href="#">Products</a>
+        <a class="nav-item nav-link" href="#">Sales</a>
+        <a class="nav-item nav-link" href="#">Dashboard</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block body_block %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
