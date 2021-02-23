@@ -1,3 +1,23 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
+class Product(models.Model):
+    name = models.CharField(max_length=256, unique=True)
+    price = models.DecimalField(decimal_places=2, max_digits=32)
+
+    def __str__(self):
+        return self.name
+
+# todo:
+    # def get_absolute_url(self):
+    #     return reverse()
+
+class Sale(models.Model):
+    product_name = models.ForeignKey(Product, related_name='sales', on_delete=models.PROTECT)
+    client_name = models.CharField(max_length=256)
+    quantity = models.PositiveIntegerField()
+    amount = models.DecimalField(decimal_places=2, max_digits=32)
+
+    def __str__(self):
+        return self.pk

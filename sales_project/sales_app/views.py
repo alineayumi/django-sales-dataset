@@ -12,3 +12,8 @@ class IndexView(TemplateView):
 
 class HomeView(TemplateView):
     template_name = 'sales_app/home.html'
+
+class ProductListView(ListView):
+    # setting the product_list to the name products to improve readability with frentend
+    context_object_name = 'products'
+    model = models.Product
