@@ -9,9 +9,8 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-# todo:
-    # def get_absolute_url(self):
-    #     return reverse()
+    def get_absolute_url(self):
+        return reverse("sales_app:product_detail", kwargs={'pk':self.pk})
 
 class Sale(models.Model):
     product_name = models.ForeignKey(Product, related_name='sales', on_delete=models.PROTECT)

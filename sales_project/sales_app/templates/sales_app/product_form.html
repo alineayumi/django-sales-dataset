@@ -1,0 +1,18 @@
+{% extends "sales_app/sales_app_base.html" %}
+
+{% block body_block %}
+<div class="container">
+  <h3>
+  {% if not form.instance.pk %}
+  Create Product
+  {% else %}
+  Update Product
+  {% endif %}
+  </h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+</div>
+{% endblock %}

@@ -2,7 +2,10 @@
 
 {% block body_block %}
 <div class="container">
-  <h3>Registered products: </h3>
+  <div class="row">
+    <h3>Products</h3>
+    <a href="{% url 'sales_app:products_create' %}"><span class="material-icons">add_circle</span></a>
+  </div>
   <table class="table table-sm table-hover table-borderless">
     <thead>
       <tr>

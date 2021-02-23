@@ -17,3 +17,12 @@ class ProductListView(ListView):
     # setting the product_list to the name products to improve readability with frentend
     context_object_name = 'products'
     model = models.Product
+
+class ProductDetailView(DetailView):
+    context_object_name = 'product_detail'
+    model = models.Product
+    template_name = 'sales_app/product_detail.html'
+
+class ProductCreateView(CreateView):
+    fields = ("name", "price")
+    model = models.Product

@@ -1,0 +1,33 @@
+{% extends "sales_app/sales_app_base.html" %}
+
+{% block body_block %}
+<div class="jumbotron">
+  <h3>
+    Product Detail Page
+  </h3>
+  <p>ID: {{product_detail.id}}</p>
+  <p>Name: {{product_detail.name}}</p>
+  <p>Unit Price: {{product_detail.price}}</p>
+  <h6>Sales: </h6>
+  <table class="table table-sm table-hover table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Client</th>
+        <th scope="col">#</th>
+        <th scope="col">total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for sale in product_detail.sales.all %}
+      <tr>
+        <td>{{sale.pk}}</td>
+        <td>{{sale.client_name}}</td>
+        <td>{{sale.quantity}}</td>
+        <td>{{sale.amount}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

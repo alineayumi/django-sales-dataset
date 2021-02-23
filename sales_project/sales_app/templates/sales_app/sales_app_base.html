@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="navbar-nav">
       {# Brand / Admin / Products / Sales / Dashboard #}
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'sales_app:home' %}">
           <img src="{% static 'sales_app/aion_logo.png' %}" height="30" class="d-inline-block align-top">
         </a>
         <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
