@@ -1,0 +1,15 @@
+{% extends "sales_app/sales_app_base.html" %}
+
+{% block body_block %}
+<div class="jumbotron">
+  <h3>
+    Sale Detail Page
+  </h3>
+  <p>ID: {{sale_detail.id}}</p>
+  <p>Client: {{sale_detail.client_name}}</p>
+  <p>Product: {{sale_detail.product_name}}</p>
+  <p>Unit Price: {{sale_detail.product_name.price}}</p>
+  <p>Quantity: {{sale_detail.quantity}}</p>
+  <p>Amount: {{sale_detail.amount}}</p>
+</div>
+{% endblock %}
