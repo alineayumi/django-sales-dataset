@@ -9,3 +9,6 @@ from django.urls import reverse_lazy
 # Create your views here.
 class IndexView(TemplateView):
     template_name = 'index.html'
+
+class HomeView(TemplateView):
+    template_name = 'sales_app/home.html'

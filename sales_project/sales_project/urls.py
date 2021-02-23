@@ -20,4 +20,5 @@ from sales_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view()),
+    path('sales_app/', include('sales_app.urls', namespace='sales_app'))
 ]
