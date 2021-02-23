@@ -1,0 +1,30 @@
+{% extends "sales_app/sales_app_base.html" %}
+
+{% block body_block %}
+<div class="container">
+  <h3>Registered products: </h3>
+  <table class="table table-sm table-hover table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product</th>
+        <th scope="col">Value</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr>
+        <td>{{product.pk}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <td>
+          <span class="material-icons">edit</span>
+          <span class="material-icons">clear</span>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

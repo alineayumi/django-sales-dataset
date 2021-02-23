@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -14,7 +16,7 @@
           <img src="{% static 'sales_app/aion_logo.png' %}" height="30" class="d-inline-block align-top">
         </a>
         <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
-        <a class="nav-item nav-link" href="#">Products</a>
+        <a class="nav-item nav-link" href="{% url 'sales_app:products' %}">Products</a>
         <a class="nav-item nav-link" href="#">Sales</a>
         <a class="nav-item nav-link" href="#">Dashboard</a>
       </div>
