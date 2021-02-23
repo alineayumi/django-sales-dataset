@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <h3>Products</h3>
-    <a href="{% url 'sales_app:products_create' %}"><span class="material-icons">add_circle</span></a>
+    <a href="{% url 'sales_app:product_create' %}"><span class="material-icons">add_circle</span></a>
   </div>
   <table class="table table-sm table-hover table-borderless">
     <thead>
@@ -22,8 +22,9 @@
         <td>{{product.name}}</td>
         <td>{{product.price}}</td>
         <td>
-          <span class="material-icons">edit</span>
-          <span class="material-icons">clear</span>
+          <a href="{% url 'sales_app:product_detail' pk=product.pk %}"><span class="material-icons">visibility</span></a>
+          <a href="{% url 'sales_app:product_update' pk=product.pk %}"><span class="material-icons">edit</span></a>
+          <a href="{% url 'sales_app:product_delete' pk=product.pk %}"><span class="material-icons">clear</span></a>
         </td>
       </tr>
       {% endfor %}
