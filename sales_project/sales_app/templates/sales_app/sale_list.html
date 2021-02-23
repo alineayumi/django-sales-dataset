@@ -29,8 +29,8 @@
         <td>{{sale.amount}}</td>
         <td>
           <a href="{% url 'sales_app:sale_detail' pk=sale.pk %}"><span class="material-icons">visibility</span></a>
-          <a href="{% url 'sales_app:product_update' pk=sale.pk %}"><span class="material-icons">edit</span></a>
-          <a href="{% url 'sales_app:product_delete' pk=sale.pk %}"><span class="material-icons">clear</span></a>
+          <a href="{% url 'sales_app:sale_update' pk=sale.pk %}"><span class="material-icons">edit</span></a>
+          <a href="{% url 'sales_app:sale_delete' pk=sale.pk %}"><span class="material-icons">clear</span></a>
         </td>
       </tr>
       {% endfor %}

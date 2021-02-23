@@ -49,10 +49,17 @@ class SalesDetailView(DetailView):
 
 class SalesCreateView(CreateView):
     redirect_field_name = 'sales_app:sale_publish'
-
     form_class = SaleForm
-
     model = models.Sale
+
+class SalesUpdateView(UpdateView):
+    redirect_field_name = 'sales_app:sale_publish'
+    form_class = SaleForm
+    model = models.Sale
+
+class SalesDeleteView(DeleteView):
+    model = models.Sale
+    success_url = reverse_lazy("sales_app:sales")
 
 def sale_publish(request, pk):
     sale = get_object_or_404(models.Sale, pk=pk)
