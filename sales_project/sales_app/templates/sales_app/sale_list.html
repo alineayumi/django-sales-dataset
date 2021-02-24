@@ -22,7 +22,7 @@
       {% for sale in sales %}
       <tr>
         <td>{{sale.pk}}</td>
-        <td>{{sale.product_name}}</td>
+        <td><a href="{% url 'sales_app:product_detail' pk=sale.product_name.pk %}">{{sale.product_name}}</a></td>
         <td>{{sale.client_name}}</td>
         <td>{{sale.product_name.price}}</td>
         <td>{{sale.quantity}}</td>

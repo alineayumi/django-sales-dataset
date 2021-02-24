@@ -6,6 +6,7 @@ from django.views.generic import (TemplateView, View,
 from . import models
 from django.urls import reverse_lazy
 from .forms import SaleForm, ProductForm
+from django.db.models import Sum
 
 # Create your views here.
 class IndexView(TemplateView):
@@ -60,6 +61,15 @@ class SalesUpdateView(UpdateView):
 class SalesDeleteView(DeleteView):
     model = models.Sale
     success_url = reverse_lazy("sales_app:sales")
+
+class DashboardView(TemplateView):
+    template_name = 'sales_app/dashboard.html'
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        products_list = models.Product.objects.all()
+        context['products'] = products_list
+        return context
 
 def sale_publish(request, pk):
     sale = get_object_or_404(models.Sale, pk=pk)
