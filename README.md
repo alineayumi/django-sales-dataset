@@ -59,8 +59,8 @@ Password:
 Superuser created successfully.
 ```
 Now when you click on admin's tab, you can use the credentials you just created.
-![admin-login](src/admin_login.png)
 You can access all database and also manipulate :)
+![admin-login](src/admin_login.png)
 
 ### Products
 In this tab you will the the list of all products registered.
@@ -81,9 +81,9 @@ And delete it with the 'X':
 ## Sales
 Sales has the same dynamic as products (add, edit, view and delete).
 ![sales-list](src/sales_list.png)
-
+ps: when creating a new sale it will only ask for product, quantity and client. The amount calculus is made once the submit button is pressed. Based on the product it will get its price and multiply by the quantity to get its value.
 ## Dashboard
-The dashboard consolidates the data from products and sales, showing the total os sales and the total revenue by product.
+The dashboard consolidates the data from products and sales, showing the total od sales and the total revenue by product.
 ![dashboard](src/dashboard.png)
 
 ## Logout
