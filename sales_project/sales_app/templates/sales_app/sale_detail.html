@@ -2,14 +2,41 @@
 
 {% block body_block %}
 <div class="jumbotron">
-  <h3>
-    Sale Detail Page
+  <h3 class="page-header">
+    SALE #{{sale_detail.id}} ({{sale_detail.product_name}})
   </h3>
-  <p>ID: {{sale_detail.id}}</p>
-  <p>Client: {{sale_detail.client_name}}</p>
-  <p>Product: {{sale_detail.product_name}}</p>
-  <p>Unit Price: {{sale_detail.product_name.price}}</p>
-  <p>Quantity: {{sale_detail.quantity}}</p>
-  <p>Amount: {{sale_detail.amount}}</p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="row id-detail">
+          <span class="material-icons md-24 id-hash">badge</span>
+          <h5 class="id-text">{{sale_detail.client_name}}</h5>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row id-detail">
+          <span class="material-icons md-24 id-hash">attach_money</span>
+          <h5 class="id-text">{{sale_detail.product_name.price}}</h5>
+          <p class="tiny-text">PER UNIT</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="row id-detail">
+          <h5>{{sale_detail.quantity}} </h5>
+          <p class="tiny-text">UNITS PURCHASED</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row id-detail">
+          <span class="material-icons md-24 id-hash">attach_money</span>
+          <h5>{{sale_detail.amount|floatformat:2}} </h5>
+          <p class="tiny-text">TOTAL</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
