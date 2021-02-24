@@ -27,7 +27,7 @@ class Product(models.Model):
         return total_revenue['amount__sum']
 
 class Sale(models.Model):
-    product_name = models.ForeignKey(Product, related_name='sales', on_delete=models.PROTECT)
+    product_name = models.ForeignKey(Product, related_name='sales', on_delete=models.CASCADE)
     client_name = models.CharField(max_length=256)
     quantity = models.PositiveIntegerField()
     amount = models.DecimalField(decimal_places=2, max_digits=32, blank=True, null=True)
