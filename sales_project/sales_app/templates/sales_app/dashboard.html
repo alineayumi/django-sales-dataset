@@ -19,7 +19,7 @@
       <tr>
         <td>{{product.pk}}</td>
         <td>{{product.name}}</td>
-        <td>{{product.sales.aggregate}}</td>
+        <td>{{product.get_total_sales}}</td>
         <td>{{product.sales.count}}</td>
       </tr>
       {% endfor %}

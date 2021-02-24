@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.db.models import Sum
 
 # Create your models here.
 class Product(models.Model):
@@ -11,6 +12,19 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse("sales_app:product_detail", kwargs={'pk':self.pk})
+
+# Calculus of sales by product
+    def get_total_sales(self):
+        total_sales = self.sales.aggregate(Sum('quantity'))
+        if total_sales['quantity__sum'] == None:
+            return 0
+        return total_sales['quantity__sum']
+
+    def get_total_revenue(self):
+        total_revenue = self.sales.aggregate(Sum('amount'))
+        if total_revenue['amount__sum'] == None:
+            return 0
+        return total_revenue['amount__sum']
 
 class Sale(models.Model):
     product_name = models.ForeignKey(Product, related_name='sales', on_delete=models.PROTECT)
