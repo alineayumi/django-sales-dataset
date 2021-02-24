@@ -1,29 +1,28 @@
 {% extends "sales_app/sales_app_base.html" %}
 
 {% block body_block %}
-<div class="container">
-  <div class="row">
-    <h3>Dashboard</h3>
-  </div>
-  <table class="table table-sm table-hover table-borderless">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Product</th>
-        <th scope="col">Total Sales</th>
-        <th scope="col">Total Revenue</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for product in products %}
-      <tr>
-        <td>{{product.pk}}</td>
-        <td>{{product.name}}</td>
-        <td>{{product.get_total_sales}}</td>
-        <td>{{product.sales.count}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="row page-header">
+  <h3>DASHBOARD</h3>
 </div>
+<table class="table table-sm table-hover table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product</th>
+      <th scope="col" class="col-number">Total Sales</th>
+      <th scope="col" class="col-number">Total Revenue</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td>{{product.pk}}</td>
+      <td>{{product.name}}</td>
+      <td class="col-number">{{product.get_total_sales}}</td>
+      <td class="col-number">{{product.sales.count}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock %}

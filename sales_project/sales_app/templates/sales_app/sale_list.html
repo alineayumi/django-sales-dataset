@@ -1,40 +1,38 @@
 {% extends "sales_app/sales_app_base.html" %}
 
 {% block body_block %}
-<div class="container">
-  <div class="row">
-    <h3>Sales</h3>
-    <a href="{% url 'sales_app:sale_create' %}"><span class="material-icons">add_circle</span></a>
-  </div>
-  <table class="table table-sm table-hover table-borderless">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Product</th>
-        <th scope="col">Client</th>
-        <th scope="col">Unit Price</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Amount</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for sale in sales %}
-      <tr>
-        <td>{{sale.pk}}</td>
-        <td><a href="{% url 'sales_app:product_detail' pk=sale.product_name.pk %}">{{sale.product_name}}</a></td>
-        <td>{{sale.client_name}}</td>
-        <td>{{sale.product_name.price}}</td>
-        <td>{{sale.quantity}}</td>
-        <td>{{sale.amount}}</td>
-        <td>
-          <a href="{% url 'sales_app:sale_detail' pk=sale.pk %}"><span class="material-icons">visibility</span></a>
-          <a href="{% url 'sales_app:sale_update' pk=sale.pk %}"><span class="material-icons">edit</span></a>
-          <a href="{% url 'sales_app:sale_delete' pk=sale.pk %}"><span class="material-icons">clear</span></a>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="row page-header">
+  <h3>SALES</h3>
+  <a href="{% url 'sales_app:product_create' %}" class="add-item-icon"><span class="material-icons md-36">add_circle</span></a>
 </div>
+<table class="table table-sm table-hover table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product</th>
+      <th scope="col">Client</th>
+      <th scope="col" class="col-number">Unit Price</th>
+      <th scope="col" class="col-number">Quantity</th>
+      <th scope="col" class="col-number">Amount</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for sale in sales %}
+    <tr>
+      <td>{{sale.pk}}</td>
+      <td><a href="{% url 'sales_app:product_detail' pk=sale.product_name.pk %}">{{sale.product_name}}</a></td>
+      <td>{{sale.client_name}}</td>
+      <td class="col-number">{{sale.product_name.price}}</td>
+      <td class="col-number">{{sale.quantity}}</td>
+      <td class="col-number">{{sale.amount}}</td>
+      <td class="action-col">
+        <a href="{% url 'sales_app:sale_detail' pk=sale.pk %}"><span class="material-icons">visibility</span></a>
+        <a href="{% url 'sales_app:sale_update' pk=sale.pk %}"><span class="material-icons">edit</span></a>
+        <a href="{% url 'sales_app:sale_delete' pk=sale.pk %}"><span class="material-icons">clear</span></a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
