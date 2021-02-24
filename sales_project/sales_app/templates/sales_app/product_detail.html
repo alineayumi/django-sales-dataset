@@ -3,19 +3,53 @@
 {% block body_block %}
 <div class="jumbotron">
   <h3 class="page-header">
-    Product Detail Page
+    {{product_detail.name.upper}}
   </h3>
-  <p>ID: {{product_detail.id}}</p>
-  <p>Name: {{product_detail.name}}</p>
-  <p>Unit Price: {{product_detail.price}}</p>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-6">
+        <div class="row id-detail">
+          <span class="material-icons md-24 id-hash">tag</span>
+          <h5 class="id-text">{{product_detail.id}}</h5>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row id-detail">
+          <span class="material-icons md-24 id-hash">attach_money</span>
+          <h5 class="id-text">{{product_detail.price}}</h5>
+          <p class="tiny-text">PER UNIT</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="row id-detail">
+          <h5>{{product_detail.get_total_sales}} </h5>
+          <p class="tiny-text">UNITS SOLD</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row id-detail">
+          <span class="material-icons md-24 id-hash">attach_money</span>
+          <h5>{{product_detail.get_total_revenue|floatformat:2}} </h5>
+          <p class="tiny-text">TOTAL</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <hr>
   <h6>Sales: </h6>
   <table class="table table-sm table-hover table-borderless">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Client</th>
-        <th scope="col">#</th>
-        <th scope="col">total</th>
+        <th scope="col">CLIENT</th>
+        <th scope="col">QUANTITY</th>
+        <th scope="col">REVENUE</th>
       </tr>
     </thead>
     <tbody>

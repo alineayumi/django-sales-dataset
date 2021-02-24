@@ -32,6 +32,23 @@ table {
   margin-top: 10px;
 }
 
+.id-text {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.id-detail {
+  margin-left: 0;
+  margin-bottom: 8px;
+}
+
+.tiny-text {
+  font-size: 12px;
+  padding-left: 12px;
+  margin: auto;
+  margin-left: 0;
+}
+
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }

@@ -17,9 +17,9 @@
     {% for product in products %}
     <tr>
       <td>{{product.pk}}</td>
-      <td>{{product.name}}</td>
+      <td><a href="{% url 'sales_app:product_detail' pk=product.pk %}">{{product.name}}</a></td>
       <td class="col-number">{{product.get_total_sales}}</td>
-      <td class="col-number">{{product.sales.count}}</td>
+      <td class="col-number">{{product.get_total_revenue|floatformat:2}}</td>
     </tr>
     {% endfor %}
   </tbody>

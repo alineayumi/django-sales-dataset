@@ -1,19 +1,22 @@
 {% extends "sales_app/sales_app_base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block body_block %}
-<div class="container">
-  <h3>
+<h3 class="page-header">
   {% if not form.instance.pk %}
   New Sale
   {% else %}
   Update Sale
   {% endif %}
-  </h3>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+</h3>
+<hr>
+<form method="post">
+  {% csrf_token %}
+  {{ form|crispy }}
+  <div class="submit-button">
     <input type="submit" class="btn btn-outline-primary" value="Submit">
     <a href="{% url 'sales_app:sales' %}"><button type="button" class="btn btn-outline-secondary">Cancel</button></a>
-  </form>
-</div>
+  </div>
+</form>
 {% endblock %}
